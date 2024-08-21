@@ -1,0 +1,74 @@
+[workspace]
+
+resolver = "2"
+
+members = ["enum_handler_core", "enum_handler_derive"]
+
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace.package]
+version = "0.1.0"
+rust-version = "1.80.1"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Dipl.-Ing. Andreas Gorges"]
+repository = "https://github.com/oxiui/enum_handler"
+# homepage = "https://www.oxiui.com"
+description = "A macro to generate a handler trait for enums variants."
+keywords = ["enum", "handler", "bloc", "state"]
+categories = ["rust-patterns", "data-structures"]
+
+
+[workspace.dependencies]
+
+# local crates
+enum_handler_derive = { path = "enum_handler_derive", version = "0.1.0" }
+enum_handler_core = { path = "enum_handler_core", version = "0.1.0" }
+
+# remote crates
+darling = "0.20.10"
+syn = "2.0.75"
+quote = "1.0.36"
+proc-macro2 = "1.0.86"
+heck = "0.5.0"
+thiserror = "1.0.63"
+
+# dev dependencies
+colored-diff = "0.2.3"
+async-trait = "0.1.81"
+tokio = "1.39.3"
+mockall = "0.13.0"
+
+[workspace.lints.rust]
+
+
+[workspace.lints.clippy]
+
+collapsible_if = "allow"
+
+
+[package]
+name = "enum_handler"
+version.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+exclude = [ #
+    "publish",
+    "watch-and-expand",
+]
+
+[lib]
+doctest = false
+
+[dependencies]
+enum_handler_derive.workspace = true
+enum_handler_core.workspace = true
+
+
+[lints]
+workspace = true

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+echo "cargo clean"
+cargo clean
+
+echo "cargo clippy"
+cargo clippy --all
+
+echo "cargo build"
+cargo build --all
+
+# echo "cargo build release"
+# cargo build --release --all
+
+echo "cargo doc"
+cargo doc --no-deps --all
+
+echo "cargo test"
+cargo test --all
+
+for crate in enum_handler_core enum_handler_derive enum_handler; do
+    echo "Publishing $crate"
+    cargo publish --manifest-path $crate/Cargo.toml --dry-run
+done

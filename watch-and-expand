@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+cargo watch -c -- cargo expand --test enum_handler_test | awk '/CargoExpandStart/,/CargoExpandEnd/'

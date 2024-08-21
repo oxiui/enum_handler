@@ -1,0 +1,31 @@
+[package]
+name = "enum_handler_core"
+version.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+description = "This crate is part of the enum_handler library. Do not use it directly."
+
+
+[dependencies]
+darling.workspace = true
+syn = { workspace = true, features = ["full"] }
+quote.workspace = true
+proc-macro2.workspace = true
+heck.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+enum_handler = { path = "../" }
+
+colored-diff.workspace = true
+async-trait.workspace = true
+tokio = { workspace = true, features = ["macros", "test-util"] }
+mockall.workspace = true
+
+[lints]
+workspace = true

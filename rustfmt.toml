@@ -1,0 +1,7 @@
+max_width = 200
+chain_width = 0
+fn_call_width = 60
+tab_spaces = 4
+#fn_args_layout = "Vertical"
+fn_params_layout = "Vertical"
+struct_lit_width = 0
